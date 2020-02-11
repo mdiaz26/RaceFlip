@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_163243) do
+ActiveRecord::Schema.define(version: 2020_02_11_000911) do
 
   create_table "cars", force: :cascade do |t|
     t.string "make"
@@ -38,11 +38,12 @@ ActiveRecord::Schema.define(version: 2020_02_10_163243) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.integer "wins"
-    t.integer "losses"
-    t.integer "balance"
+    t.integer "wins", default: 0
+    t.integer "losses", default: 0
+    t.integer "balance", default: 250000
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
 end

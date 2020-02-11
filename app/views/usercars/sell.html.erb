@@ -1,0 +1,10 @@
+<h1>Sell Page</h1>
+
+<% @user.user_cars.each do |uc| %>
+    <ul>
+        <li><%= uc.make %>
+        <%= uc.model %>
+        <%= uc.condition %>
+        <%= uc.value %></li>
+    </ul>
+<% end %>

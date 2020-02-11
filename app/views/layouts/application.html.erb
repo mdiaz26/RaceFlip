@@ -7,6 +7,11 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= link_to "Race", race_path %>
+    <%= link_to "Garage", garage_path %>
+    <%= link_to "Dealer", dealer_path %>
+    <%= link_to "Leaderboards", leaderboard_path %>
+    <%# button_to "Log out", action: '/logout', controller: "sessions", method: 'delete' %>
   </head>
 
   <body>
