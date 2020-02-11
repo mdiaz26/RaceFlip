@@ -16,4 +16,8 @@ class UserCar < ApplicationRecord
     def make
         self.car.make
     end
+
+    def user_car_info
+        self.make.to_s + " " + self.model.to_s + " Top Speed: #{self.car.top_speed}"
+    end
 end
