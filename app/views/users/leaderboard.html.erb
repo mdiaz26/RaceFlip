@@ -1,16 +1,12 @@
 <h1>Leaderboard</h1>
 
+<ol>
 <% @users.each do |user| %>
-<ol><li>
+    <li>
     <%= user.name %>
     <%= user.score %>
     <%= user.wins %>
     <%= user.top_car.user_car_info %>
     </li>
+<% end %>
     </ol>
-<% end %>
-
-<% Race.all.each do |race| %>
-Winner: <%= race.winner.user.name %>
-Loser: <%= race.loser.user.name %>
-<% end %>

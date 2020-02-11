@@ -13,10 +13,16 @@ class UsercarsController < ApplicationController
     end
 
     def create
-        @usercar = UserCar.create(user_id: session[:user_id], car_id: flash[:car_id])
-        @user.balance -= @usercar.car.cost
-        @user.save
-        redirect_to dealer_path
+        @car = Car.find(flash[:car_id])
+        if @car.cost > @user.balance
+            flash[:errors] = "You don't have enough money"
+            redirect_to buy_path
+        else
+            @usercar = UserCar.create(user_id: session[:user_id], car_id: flash[:car_id])
+            @user.balance -= @usercar.car.cost
+            @user.save
+            redirect_to dealer_path
+        end
     end
 
     def sell

@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     end
 
     def leaderboard
-        @users = User.all
+        @users = User.all.sort_by{|user| user.score}.reverse
     end
 
 

@@ -10,28 +10,38 @@ class RacesController < ApplicationController
 
     def create
         race = Race.create(race_params)
-        # byebug
+        pot = race_value(race.winner, race.loser).to_i
         determine_results(race)
         if race.winner.user == @user
-            @user.balance += 500
+            flash[:message] = "You won $#{pot}"
+            @user.balance += pot
             @user.save
         else
-            @user.balance -= 500
+            flash[:message] = "You lost $#{pot}"
+            @user.balance -= pot
             @user.save
         end
         redirect_to race_path
     end
 
     def determine_results(race)
-        # byebug
+        #This method accepts the argument of a race instance and returns the pot
+        # The pot can be a positive or negative number
         car1 = race.winner
         car2 = race.loser
-        if car1.car.top_speed < car2.car.top_speed
+        # byebug
+        if car1.car_score < car2.car_score
             race.winner = car2
             race.loser = car1
             race.save
         end
     end
+
+    def race_value(car1, car2)
+        1000 * (car1.top_speed.to_f / car2.top_speed.to_f)
+    end
+
+
 
     private
 

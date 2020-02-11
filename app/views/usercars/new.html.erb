@@ -1,4 +1,9 @@
 <h1>Buy Page</h1>
+
+<% if flash[:errors] %>
+    <%= flash[:errors] %>
+<% end %>
+
 <h2>What's your offer for this car?</h2>
 <%= @car.make %>
 <%= @car.model %>

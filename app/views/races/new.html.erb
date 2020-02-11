@@ -1,6 +1,10 @@
 <h1>Race Page</h1>
 
 Recent Race Results:<br>
+<% if flash[:message] %>
+    <strong><%= flash[:message] %></strong>
+<% end %><br><br>
+
 <% if Race.last %>
     Race Number: <%= Race.last.id %><br>
     Winner: <%= Race.last.display_winner %><br>
