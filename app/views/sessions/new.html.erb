@@ -1,7 +1,13 @@
 <h1>Login Page</h1>
 
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <%= error %>
+    <% end %>
+<% end %>
+
 <%= form_tag '/login' do %>
-<%= text_field_tag :username %>
+<%= text_field_tag :name %>
 <%= text_field_tag :password %>
 <%= submit_tag "log in" %>
 <% end %>

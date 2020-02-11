@@ -7,11 +7,17 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    User: <% if @user %>
+            <%= @user.name %>
+            <%= @user.balance %>
+          <% else %>
+            <%= "no user" %>
+          <% end %>
     <%= link_to "Race", race_path %>
     <%= link_to "Garage", garage_path %>
     <%= link_to "Dealer", dealer_path %>
     <%= link_to "Leaderboards", leaderboard_path %>
-    <%# button_to "Log out", action: '/logout', controller: "sessions", method: 'delete' %>
+    <%= link_to "Log Out", "/logout", method: :delete %>
   </head>
 
   <body>

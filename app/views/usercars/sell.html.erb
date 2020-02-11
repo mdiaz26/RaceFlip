@@ -2,9 +2,14 @@
 
 <% @user.user_cars.each do |uc| %>
     <ul>
-        <li><%= uc.make %>
+        <li><%= link_to "#{uc.make}", "/dealer", method: :delete %>
         <%= uc.model %>
         <%= uc.condition %>
         <%= uc.value %></li>
     </ul>
+<% end %>
+
+<%= form_for :usercar, :html => { :method => :delete } do |f| %>
+    <%= f.collection_select(:user_car_id, @user.user_cars, :id, :make) %>
+    <%= f.submit "sell it" %>
 <% end %>

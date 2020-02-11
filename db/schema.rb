@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_11_000911) do
+ActiveRecord::Schema.define(version: 2020_02_11_170613) do
 
   create_table "cars", force: :cascade do |t|
     t.string "make"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_02_11_000911) do
   create_table "user_cars", force: :cascade do |t|
     t.integer "user_id"
     t.integer "car_id"
-    t.integer "condition"
+    t.integer "condition", default: 100
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

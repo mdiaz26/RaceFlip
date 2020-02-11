@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     layout "application"
+    before_action :authorized, only: [:garage]
+    before_action :identify_user, only: [:garage]
 
     def index
     end
@@ -10,7 +12,6 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        byebug
         if @user.valid?
             redirect_to garage_path
         else
@@ -20,12 +21,12 @@ class UsersController < ApplicationController
     end
 
     def garage
-        #hardcoding this for now. We'll likely use a 'before' method to preset @user based on login.
-        @user = User.first
     end
 
     def leaderboard
     end
+
+
 
     private
 
