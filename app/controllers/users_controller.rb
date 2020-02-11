@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     layout "application"
     before_action :authorized, only: [:garage]
-    before_action :identify_user, only: [:garage]
+    before_action :identify_user, only: [:garage, :leaderboard]
 
     def index
     end
@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     end
 
     def leaderboard
+        @users = User.all
     end
 
 
