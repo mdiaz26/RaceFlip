@@ -6,11 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'database_cleaner/active_record'
+
+DatabaseCleaner.strategy = :truncation
+
+# then, whenever you need to clean the DB
+DatabaseCleaner.clean
+
 User.delete_all
 Car.delete_all
 UserCar.delete_all
-
-
 
 acura1 = Car.create(make:"Acura", model:"TL",  cost:28000, top_speed: 125)
 bmw1 = Car.create(make: "BMW", model: "5-series", cost: 47500, top_speed: 148)
@@ -67,10 +72,13 @@ hennessey1 = Car.create(make:"Hennessey",model: "VenomF5", cost: 1900000, top_sp
 range1 = Car.create(make:"RangeRover",model: "VelarSVR", cost: 285000, top_speed: 196)
 
 
-User.create(name:"Anthony",wins:0,losses:0,balance:250000)
-User.create(name:"Mike",wins:0,losses:0,balance:250000)
-User.create(name:"Kent",wins:0,losses:0,balance:250000)
+User.create(name:"Anthony", password: "test")
+User.create(name:"Mike", password: "test")
+User.create(name:"Kent", password: "test")
 
-UserCar.create(user_id:User.first.id,car_id:Car.first.id,condition:100)
-UserCar.create(user_id:User.second.id,car_id:Car.second.id,condition:100)
-UserCar.create(user_id:User.third.id,car_id:Car.third.id,condition:100)
+4.times do UserCar.create(user_id:User.first.id,car_id:Car.all.sample.id)
+end
+4.times do UserCar.create(user_id:User.second.id,car_id:Car.all.sample.id)
+end
+4.times do UserCar.create(user_id:User.third.id,car_id:Car.all.sample.id)
+end

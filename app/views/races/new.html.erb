@@ -1,17 +1,19 @@
 <h1>Race Page</h1>
 
 Recent Race Results:<br>
-<% Race.all.each do |race| %>
-    Race Number: <%= race.id %><br>
-    Winner: <%= race.display_winner %><br>
-    Loser: <%= race.display_loser %><br>
-<% end %><br><br>
+<% if Race.last %>
+    Race Number: <%= Race.last.id %><br>
+    Winner: <%= Race.last.display_winner %><br>
+    Loser: <%= Race.last.display_loser %><br><br>
+<% else%>
+    <%= "No recent races" %><br><br>
+<% end %>
 
 New Race:
 <%= form_for :race do |f| %>
     <%= f.label :your_car %>
     <%= f.collection_select(:winner_id, @usercars, :id, :user_car_info)%>
     <%= f.label :opponent_car %>
-    <%= f.collection_select(:loser_id, @cars, :id, :car_info)%>
+    <%= f.collection_select(:loser_id, @cars, :id, :user_car_info)%>
     <%= f.submit "race!" %>
 <% end %>
