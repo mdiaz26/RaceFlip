@@ -1,9 +1,10 @@
 <h1>Buy Page</h1>
 
 <% if flash[:errors] %>
-    <%= flash[:errors] %>
+<%= flash[:errors] %>
 <% end %>
 
+<img src=<%= @car.image_url %>>
 <h2>What's your offer for this car?</h2>
 <%= @car.make %>
 <%= @car.model %>
