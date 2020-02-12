@@ -22,4 +22,13 @@ class User < ApplicationRecord
         def wins
                 winning_races.count
         end
+
+        def self.arrange_by_score
+                self.all.sort_by{|user| user.score}.reverse
+        end
+
+        def rank
+                @users = User.arrange_by_score
+                @users.index(self) + 1
+        end
 end
