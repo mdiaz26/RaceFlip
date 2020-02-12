@@ -21,6 +21,7 @@ class RacesController < ApplicationController
             @user.balance -= pot
             @user.save
         end
+        race.deteriorate
         redirect_to race_path
     end
 

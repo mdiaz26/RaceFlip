@@ -15,4 +15,11 @@ class Race < ApplicationRecord
         loser = find_user_car(loser_id)
         return "#{loser.user.name}, #{loser.car.make} #{loser.car.model}"
     end
+
+    def deteriorate
+        self.winner.condition *= 0.85
+        self.winner.save
+        self.loser.condition *= 0.85
+        self.loser.save
+    end
 end
