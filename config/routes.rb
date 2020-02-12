@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   get "/dealer/buy", to: "usercars#new", as: "buy"
   post "/dealer", to: "usercars#create"
   get "dealer/sell", to: "usercars#sell", as: "sell"
+  get "/garage/:id", to: "usercars#show", as: "uc"
   delete "/dealer/sell", to: "usercars#destroy"
+
 
   get "/leaderboards", to: "users#leaderboard", as: "leaderboard"
 

@@ -25,6 +25,14 @@ class UsercarsController < ApplicationController
         end
     end
 
+    def show
+        @ucs = @user.user_cars
+        @uc = UserCar.find(params[:id])
+        @i = @ucs.index(@uc) + 1  
+        @next = @ucs[@i]
+
+    end
+
     def sell
     end
     

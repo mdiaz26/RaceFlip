@@ -4,9 +4,6 @@
 
 <% @user.user_cars.each do |uc| %>
     <ul>
-        <li><%= uc.make %>
-        <%= uc.model %>
-        <%= uc.condition %>
-        <%= uc.value %></li>
+        <li><%= link_to "#{uc.make} #{uc.model}", uc_path(uc)%></li>
     </ul>
 <% end %>
