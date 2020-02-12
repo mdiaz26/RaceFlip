@@ -8,13 +8,13 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <nav class="navbar navbar-light bg-light">
-    <h6 class="navbar-brand"> User: <% if @user %>
-            <%= @user.id %>
+    User: <% if @user %>
             <%= @user.name %>
-            <%= @user.balance %>
+            (<%= @user.id %>)
+            Balance: $<%= number_with_delimiter(@user.balance, delimiter: ",") %>
           <% else %>
             <%= "no user" %>
-          <% end %> </h6>
+          <% end %>
     <a class="navbar-brand" href="/race">Race</a>
     <a class="navbar-brand" href="/garage">Garage</a>
     <a class="navbar-brand" href="/dealer">Dealer</a>

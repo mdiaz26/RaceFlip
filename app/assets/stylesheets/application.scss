@@ -15,3 +15,13 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+html body #bgimage {
+    background-image: image-url('background.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+div.a {
+    text-align: center;
+  }
