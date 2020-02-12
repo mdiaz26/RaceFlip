@@ -7,18 +7,20 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <nav class="navbar navbar-light bg-light">
     User: <% if @user %>
-            <%= @user.id %>
             <%= @user.name %>
-            <%= @user.balance %>
+            (<%= @user.id %>)
+            Balance: $<%= number_with_delimiter(@user.balance, delimiter: ",") %>
           <% else %>
             <%= "no user" %>
           <% end %>
-    <%= link_to "Race", race_path %>
-    <%= link_to "Garage", garage_path %>
-    <%= link_to "Dealer", dealer_path %>
-    <%= link_to "Leaderboards", leaderboard_path %>
-    <%= link_to "Log Out", "/logout", method: :delete %>
+    <a class="navbar-brand" href="/race">Race</a>
+    <a class="navbar-brand" href="/garage">Garage</a>
+    <a class="navbar-brand" href="/dealer">Dealer</a>
+    <a class="navbar-brand" href="/leaderboards">Leaderboards</a>
+    <a class="navbar-brand" href="/logout">Log Out</a>
+    </nav>
   </head>
 
   <body>
