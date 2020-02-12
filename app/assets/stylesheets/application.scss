@@ -16,12 +16,32 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
-html body #bgimage {
-    background-image: image-url('background.jpeg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
+// html body {
+//     // background-image: image-url('background.jpeg');
+//     background-color: rgb(213,24,45);
+//     background-color: hsla(200,40,30,0.60);
+// }
 
 div.a {
     text-align: center;
   }
+
+img {
+      max-width: 40%;
+      height:auto;
+    }
+    
+body {
+    background-image: url("https://www.formula1.com/content/dam/fom-website/ooyala-videos/2019/10/htOTBwaTE6g4yLUObgBrSdu03B0ufCgZ");
+    height: 100%;
+    background-position: fixed;    
+    // background-size: contain;
+    // // background-position: initial;  
+    // background-repeat: no-repeat;  
+    }
+
+
+
+
+
+

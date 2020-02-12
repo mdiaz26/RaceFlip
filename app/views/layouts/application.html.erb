@@ -9,11 +9,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <nav class="navbar navbar-light bg-light">
     User: <% if @user %>
-            <%= @user.name %>
-            (<%= @user.id %>)
+            <%= @user.name %><br>
             Balance: $<%= number_with_delimiter(@user.balance, delimiter: ",") %>
           <% else %>
-            <%= "no user" %>
+            <%= "PLEASE LOG IN" %>
           <% end %>
     <a class="navbar-brand" href="/race">Race</a>
     <a class="navbar-brand" href="/garage">Garage</a>

@@ -31,4 +31,8 @@ class User < ApplicationRecord
                 @users = User.arrange_by_score
                 @users.index(self) + 1
         end
+
+        def ucars_array
+        self.user_cars.cycle
+        end
 end
