@@ -30,4 +30,8 @@ class UserCar < ApplicationRecord
         (self.top_speed + self.condition) * (rand(90..100)/100.0)
     end
 
+    def repair
+        self.condition = 100
+    end
+
 end

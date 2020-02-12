@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post "/dealer", to: "usercars#create"
   get "dealer/sell", to: "usercars#sell", as: "sell"
   get "/garage/:id", to: "usercars#show", as: "uc"
+  post "/garage", to: "usercars#repair"
   delete "/dealer/sell", to: "usercars#destroy"
 
 

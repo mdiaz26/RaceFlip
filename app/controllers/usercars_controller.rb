@@ -49,4 +49,10 @@ class UsercarsController < ApplicationController
         params.require(:usercar).permit(:user_car_id)
     end
 
+    def repair
+        @usercar = UserCar.find(user_car_params[:user_car_id])
+        @usercar.condition = 100
+        @usercar.save
+    end
+
 end
