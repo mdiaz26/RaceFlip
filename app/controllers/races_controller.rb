@@ -41,8 +41,6 @@ class RacesController < ApplicationController
         1000 * (car1.top_speed.to_f / car2.top_speed.to_f)
     end
 
-
-
     private
 
     def race_params
