@@ -41,8 +41,11 @@ body.garage {
   height: 100%;
   background-repeat: no-repeat;
   background-position: fixed;
-  text-align: center;
   }
+
+a {
+  color: black
+}
 
 div.background{
   background-color: rgba(179, 255, 0, 0.561);
@@ -54,6 +57,17 @@ div.background{
   top: 25%;
   transform: translate(-50%);
   font-family: 'Impact';
+}
+
+div.garage{
+  background-color: rgba(0, 255, 179, 0.561);
+  opacity: 0.9;
+  width: 90%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  font-family: 'Impact';
+  font-size: 200%;
 }
 
 p.title{
@@ -90,7 +104,23 @@ div.button{
   margin: 3px
 }
 
+span#first{
+  position: relative;
+  left: 5%;
+}
 
+span#second{
+  position: relative;
+  left: 20%;
+}
 
+span#third{
+  position: relative;
+  left: 35%;
+}
 
+span#fourth{
+  position: relative;
+  left: 50%;
+}
 
