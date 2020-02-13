@@ -1,4 +1,4 @@
-<h1>Sign Up</h1>
+<div class="background" ><p class="title">Sign Up</p>
 
 <% if flash[:errors] %>
     <%= flash[:errors].each do |error| %>
@@ -7,9 +7,12 @@
 <% end %>
 
 <%= form_for(@user) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-    <%= f.submit %>
-<% end %>
+    <%= f.text_field :name, placeholder: "username" %>
+    <%= f.password_field :password, placeholder: "password" %>
+    <%= f.submit "Get Started"%>
+<% end %><br>
+<div class="button"><form method="get" action="/" controller="application">
+    <input value="Go Back" type="submit" />
+</form></div>
+
+</div>

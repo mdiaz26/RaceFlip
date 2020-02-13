@@ -40,7 +40,7 @@ body {
     // background-repeat: no-repeat;  
     }
 
-div.welcome{
+div.background{
   background-color: rgba(179, 255, 0, 0.561);
   opacity: 0.9;
   text-align: center;
@@ -80,6 +80,10 @@ a#login-button{
 a#sign-up-button{
   position: relative;
   left: 15%;
+}
+
+div.button{
+  margin: 3px
 }
 
 
