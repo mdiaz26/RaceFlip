@@ -52,13 +52,26 @@ a {
 div.background{
   background-color: rgba(179, 255, 0, 0.561);
   opacity: 0.9;
-  text-align: center;
   width: 40%;
+  font-family: 'Impact';
+}
+
+div#welcome{
+  text-align: center;
   position: absolute;
   left: 50%;
   top: 25%;
   transform: translate(-50%);
-  font-family: 'Impact';
+}
+
+div#car-show{
+  position: absolute;
+  left: 60%;
+  top: 15%;
+  transform: translate(-50%);
+  padding: 0 15px;
+  float: left;
+  font-size: 150%;
 }
 
 div.garage{
@@ -124,5 +137,15 @@ span#third{
 span#fourth{
   position: relative;
   left: 50%;
+}
+
+img.car{
+  padding: 0 15px;
+  float: left;
+}
+
+span#next-vehicle{
+  position: relative;
+  left: 5%;
 }
 
