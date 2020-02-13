@@ -1,7 +1,12 @@
+<% if flash[:repair_message] %>
+    <%= flash[:repair_message] %>
+<% end %>
+
 <div class = "img-with-text" >
 <p><img style="padding: 0 15px; float: left;" src=<%=@uc.car.image_url%>></p>
 <p style="margin-top: 20px;"> </p>
-<p>CONDITION: <%= @uc.condition %> % <a class="btn btn-outline-primary" href="/repair" role="button">Repair</a></p> 
+<p>CONDITION: <%= @uc.condition %> 
+    <%= button_to "repair", {controller: "usercars", action: "repair", id: @uc.id}, method: "post" %></p>
 <p>TOP SPEED: <%= @uc.top_speed %> MPH </p> 
 <p>VALUE: $<%= number_with_delimiter(@uc.car.cost, delimiter: ",") %> </p> </div>
 

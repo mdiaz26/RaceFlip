@@ -45,14 +45,25 @@ class UsercarsController < ApplicationController
         redirect_to sell_path
     end
 
+    def repair
+        @usercar = UserCar.find(repair_params[:id])
+        if @usercar.condition = 100
+            flash[:repair_message] = "No need to repair"
+        else
+            @usercar.repair
+            @usercar.save
+            @usercar.user.save
+            flash[:repair_message] = "You have been charged $100"
+        end
+        redirect_to uc_path(@usercar)
+    end
+
     def user_car_params
         params.require(:usercar).permit(:user_car_id)
     end
 
-    def repair
-        @usercar = UserCar.find(user_car_params[:user_car_id])
-        @usercar.condition = 100
-        @usercar.save
+    def repair_params
+        params.permit(:id)
     end
 
 end

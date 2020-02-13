@@ -31,7 +31,13 @@ class UserCar < ApplicationRecord
     end
 
     def repair
-        self.condition = 100
+        if self.condition = 100
+            
+        else
+            self.condition = 100
+            self.user.balance -= 100
+            
+        end
     end
 
 end
