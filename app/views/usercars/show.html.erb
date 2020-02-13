@@ -15,9 +15,7 @@
 <p>TOP SPEED: <%= @uc.top_speed %> MPH </p> 
 <p>VALUE: $<%= number_with_delimiter(@uc.car.cost, delimiter: ",") %> </p> </div>
 
-
-
+<%= link_to "PREVIOUS VEHICLE", uc_path(@previous)%>
 <%= link_to "NEXT VEHICLE", uc_path(@next)%>
 
-<%= link_to "PREVIOUS VEHICLE", uc_path(@previous)%>
 
