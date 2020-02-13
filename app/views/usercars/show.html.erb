@@ -2,20 +2,32 @@
     <%= flash[:repair_message] %>
 <% end %>
 
-<div class = "img-with-text" >
-<p><img style="padding: 0 15px; float: left;" src=<%=@uc.car.image_url%>></p>
-<p style="margin-top: 20px;"> </p>
-<p>CONDITION: <%= @uc.condition %> 
-    <%= button_to "repair", {controller: "usercars", action: "repair", id: @uc.id}, method: "post" %></p>
-    <% if flash[:repair_cue] %>
-    <audio autoplay preload= "auto">
-    <source src="http://soundbible.com/grab.php?id=1975&type=wav" type="audio/wav">
-    </audio>
-    <% end %>
-<p>TOP SPEED: <%= @uc.top_speed %> MPH </p> 
-<p>VALUE: $<%= number_with_delimiter(@uc.car.cost, delimiter: ",") %> </p> </div>
+<div class="background">
+    <h2>
+        <%= @uc.make %> <%= @uc.model%>
+    </h2>
+</div>
 
-<%= link_to "PREVIOUS VEHICLE", uc_path(@previous)%>
-<%= link_to "NEXT VEHICLE", uc_path(@next)%>
+<div class="img-with-text">
+    <p><img class="car" src=<%=@uc.car.image_url%>></p>
+</div>
+
+<div class="background" id="car-show">
+        <p>CONDITION: <%= @uc.condition %>
+
+        <%= button_to "repair", {controller: "usercars", action: "repair", id: @uc.id}, method: "post" %></p>
+        <% if flash[:repair_cue] %>
+            <audio autoplay preload= "auto">
+            <source src="http://soundbible.com/grab.php?id=1975&type=wav" type="audio/wav">
+            </audio>
+        <% end %>
+
+    <p>TOP SPEED: <%= @uc.top_speed %> MPH</p>
+
+    <p>VALUE: $<%= number_with_delimiter(@uc.car.cost, delimiter: ",") %></p>
+
+    <%= link_to "PREVIOUS VEHICLE", uc_path(@previous)%>
+    <span id="next-vehicle"><%= link_to "NEXT VEHICLE", uc_path(@next)%> </span>
+</div>
 
 
