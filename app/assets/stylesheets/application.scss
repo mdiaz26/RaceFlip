@@ -22,23 +22,27 @@
 //     background-color: hsla(200,40,30,0.60);
 // }
 
-div.a {
-    text-align: center;
-  }
-
 img {
-      max-width: 40%;
-      height:auto;
-    }
-    
+  max-width: 40%;
+  height:auto;
+}
+
 body {
-    background-image: url("https://www.formula1.com/content/dam/fom-website/ooyala-videos/2019/10/htOTBwaTE6g4yLUObgBrSdu03B0ufCgZ");
-    height: 100%;
-    background-position: fixed;    
-    // background-size: contain;
-    // // background-position: initial;  
-    // background-repeat: no-repeat;  
-    }
+  background-image: url("https://www.formula1.com/content/dam/fom-website/ooyala-videos/2019/10/htOTBwaTE6g4yLUObgBrSdu03B0ufCgZ");
+  height: 100%;
+  background-position: fixed;    
+  // background-size: contain;
+  // // background-position: initial;  
+  // background-repeat: no-repeat;  
+}
+
+body.garage {
+  background-image: url("https://si.wsj.net/public/resources/images/B3-DH847_GARAGE_M_20190301170204.jpg");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: fixed;
+  text-align: center;
+  }
 
 div.background{
   background-color: rgba(179, 255, 0, 0.561);
