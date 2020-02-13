@@ -4,7 +4,8 @@ class User < ApplicationRecord
         has_many :cars, through: :user_cars 
 
         def score
-                self.user_cars.reduce(0) {|n, car| car.top_speed + n }
+                owned_cars = self.user_cars.select{|usercar| usercar.owned}
+                owned_cars.reduce(0) {|n, car| car.top_speed + n }
         end
 
         def arrange_cars
@@ -33,6 +34,6 @@ class User < ApplicationRecord
         end
 
         def ucars_array
-                 self.user_cars.cycle
+                self.user_cars.cycle
         end
 end

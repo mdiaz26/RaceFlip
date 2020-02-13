@@ -42,11 +42,11 @@ class UsercarsController < ApplicationController
     end
     
     def destroy
-        # byebug
         @usercar = UserCar.find(user_car_params[:user_car_id])
         @user.balance += @usercar.car.cost
         @user.save
-        @usercar.destroy
+        @usercar.owned = "false"
+        @usercar.save
         redirect_to sell_path
     end
 

@@ -1,3 +1,4 @@
+<div class="background">
 <h1>Sell Page</h1>
 
 <% @user.user_cars.each do |uc| %>
@@ -13,3 +14,9 @@
     <%= f.collection_select(:user_car_id, @user.user_cars, :id, :make) %>
     <%= f.submit "sell it" %>
 <% end %> 
+
+<div class="button"><form method="get" action="/dealer">
+    <input value="Go Back" type="submit" />
+</form></div>
+
+</div>
