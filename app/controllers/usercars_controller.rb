@@ -47,13 +47,14 @@ class UsercarsController < ApplicationController
 
     def repair
         @usercar = UserCar.find(repair_params[:id])
-        if @usercar.condition = 100
+        if @usercar.condition == 100
             flash[:repair_message] = "No need to repair"
         else
+            @cost = @usercar.calculate_repair_cost
             @usercar.repair
             @usercar.save
             @usercar.user.save
-            flash[:repair_message] = "You have been charged $100"
+            flash[:repair_message] = "You have been charged #{@cost}"
         end
         redirect_to uc_path(@usercar)
     end
