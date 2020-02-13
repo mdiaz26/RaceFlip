@@ -16,10 +16,12 @@ class RacesController < ApplicationController
             flash[:message] = "You won $#{pot}"
             @user.balance += pot
             @user.save
+            flash[:last_result] = "w"
         else
             flash[:message] = "You lost $#{pot}"
             @user.balance -= pot
             @user.save
+            flash[:last_result] = "l"
         end
         race.deteriorate
         redirect_to race_path

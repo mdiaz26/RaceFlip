@@ -33,6 +33,6 @@ class User < ApplicationRecord
         end
 
         def ucars_array
-        self.user_cars.cycle
+                 self.user_cars.cycle
         end
 end

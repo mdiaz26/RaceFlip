@@ -60,6 +60,7 @@ class UsercarsController < ApplicationController
             @usercar.save
             @usercar.user.save
             flash[:repair_message] = "You have been charged #{@cost}"
+            flash[:repair_cue] = true
         end
         redirect_to uc_path(@usercar)
     end

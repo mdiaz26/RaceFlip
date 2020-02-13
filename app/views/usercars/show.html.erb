@@ -7,6 +7,11 @@
 <p style="margin-top: 20px;"> </p>
 <p>CONDITION: <%= @uc.condition %> 
     <%= button_to "repair", {controller: "usercars", action: "repair", id: @uc.id}, method: "post" %></p>
+    <% if flash[:repair_cue] %>
+    <audio autoplay preload= "auto">
+    <source src="http://soundbible.com/grab.php?id=1975&type=wav" type="audio/wav">
+    </audio>
+    <% end %>
 <p>TOP SPEED: <%= @uc.top_speed %> MPH </p> 
 <p>VALUE: $<%= number_with_delimiter(@uc.car.cost, delimiter: ",") %> </p> </div>
 
@@ -15,3 +20,4 @@
 <%= link_to "NEXT VEHICLE", uc_path(@next)%>
 
 <%= link_to "PREVIOUS VEHICLE", uc_path(@previous)%>
+
