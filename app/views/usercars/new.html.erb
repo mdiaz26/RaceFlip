@@ -1,15 +1,16 @@
-<div class="background">
-<h1>Buy Page</h1>
-
 <% if flash[:errors] %>
-<%= flash[:errors] %>
+    <%= flash[:errors] %>
 <% end %>
 
-<img src=<%= @car.image_url %>>
+<div class="background">
 <h2>What's your offer for this car?</h2>
-<%= @car.make %>
-<%= @car.model %>
-<%= @car.cost%>
+
+<img class="car" id="buy" src=<%= @car.image_url %> >
+
+
+<p><%= @car.make %></p>
+<p><%= @car.model %></p>
+<p>$<%= @car.cost%></p><br>
 
 <%= button_to "Buy It", "/dealer", method: :post %>
 <%= button_to "Show me something else", "/dealer/buy", method: :get %>

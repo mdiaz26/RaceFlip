@@ -27,6 +27,10 @@ img {
   height:auto;
 }
 
+img#buy {
+  max-width: 50%;
+}
+
   body {
   background-size: cover;
   height: 100vh;
@@ -71,6 +75,16 @@ div.background{
   opacity: 0.9;
   width: 40%;
   font-family: 'Impact';
+}
+
+div.description{
+  background-color: rgba(179, 255, 0, 0.561);
+  opacity: 0.9;
+  width: 40%;
+  font-family: 'Impact';
+  position: relative;
+  left: 45%;
+  bottom: 25%;
 }
 
 div#welcome{
@@ -164,5 +178,10 @@ img.car{
 span#next-vehicle{
   position: relative;
   left: 5%;
+}
+
+strong.message{
+  color: rgb(47, 102, 255);
+  font-size: 150%;
 }
 

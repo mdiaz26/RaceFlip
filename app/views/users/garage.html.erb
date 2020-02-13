@@ -1,12 +1,10 @@
 <body class="garage">
 
-<% @user.user_cars.each do |uc| %>
-    <%# link_to "#{uc.make} #{uc.model}", uc_path(uc)%>
-<% end %>
+
 <div class="garage">
-    <span id="first" ><%= link_to "#{@user.user_cars.first.make} #{@user.user_cars.first.model}", uc_path(@user.user_cars.first)%> </span><br>
-    <span id="second" ><%= link_to "#{@user.user_cars.second.make} #{@user.user_cars.second.model}", uc_path(@user.user_cars.second)%></span><br>
-    <span id="third"><%= link_to "#{@user.user_cars.third.make} #{@user.user_cars.third.model}", uc_path(@user.user_cars.third)%></span><br>
-    <span id="fourth"><%= link_to "#{@user.user_cars.fourth.make} #{@user.user_cars.fourth.model}", uc_path(@user.user_cars.fourth)%></span>
+    <span id="first" ><%= link_to "#{@user.owned_cars.first.make} #{@user.owned_cars.first.model}", uc_path(@user.owned_cars.first)%> </span><br>
+    <span id="second" ><%= link_to "#{@user.owned_cars.second.make} #{@user.owned_cars.second.model}", uc_path(@user.owned_cars.second)%></span><br>
+    <span id="third"><%= link_to "#{@user.owned_cars.third.make} #{@user.owned_cars.third.model}", uc_path(@user.owned_cars.third)%></span><br>
+    <span id="fourth"><%# link_to "#{@user.owned_cars.fourth.make} #{@user.owned_cars.fourth.model}", uc_path(@user.owned_cars.fourth)%></span>
 </div>
 </body>

@@ -1,10 +1,11 @@
 <div class="background">
-<h1>Race Page</h1>
-
-Recent Race Results:<br>
-<% if flash[:message] %>
-    <strong><%= flash[:message] %></strong>
-<% end %><br><br>
+<h1>Recent Race Results:</h1>
+<strong class="message">
+    <% if flash[:message] %>
+        <%= flash[:message] %>
+    <% else %>
+        <%= "Let's Do This!"%>
+    <% end %></strong><br><br>
 
 <% if Race.last %>
     Race Number: <%= Race.last.id %><br>
