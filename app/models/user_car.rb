@@ -6,7 +6,7 @@ class UserCar < ApplicationRecord
 
     def value
     # this will become a more complex formula that factors in condition etc
-        self.car.cost
+        self.car.cost - self.calculate_repair_cost
     end
 
     def model
@@ -31,13 +31,12 @@ class UserCar < ApplicationRecord
     end
 
     def repair
-        if self.condition = 100
-            
-        else
-            self.condition = 100
-            self.user.balance -= 100
-            
-        end
+        self.user.balance -= self.calculate_repair_cost
+        self.condition = 100
+    end
+
+    def calculate_repair_cost
+        (self.car.cost * (100- self.condition).to_f/1000).to_i
     end
 
 end
