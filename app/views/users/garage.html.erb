@@ -1,11 +1,12 @@
 <body class="garage">
-<div class="a">
-<h1>Garage</h1>
-</div>
 
 <% @user.user_cars.each do |uc| %>
-    <ul>
-        <li><%= link_to "#{uc.make} #{uc.model}", uc_path(uc)%></li>
-    </ul>
+    <%# link_to "#{uc.make} #{uc.model}", uc_path(uc)%>
 <% end %>
+<div class="garage">
+    <span id="first" ><%= link_to "#{@user.user_cars.first.make} #{@user.user_cars.first.model}", uc_path(@user.user_cars.first)%> </span><br>
+    <span id="second" ><%= link_to "#{@user.user_cars.second.make} #{@user.user_cars.second.model}", uc_path(@user.user_cars.second)%></span><br>
+    <span id="third"><%= link_to "#{@user.user_cars.third.make} #{@user.user_cars.third.model}", uc_path(@user.user_cars.third)%></span><br>
+    <span id="fourth"><%= link_to "#{@user.user_cars.fourth.make} #{@user.user_cars.fourth.model}", uc_path(@user.user_cars.fourth)%></span>
+</div>
 </body>
