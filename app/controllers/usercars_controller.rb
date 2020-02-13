@@ -29,8 +29,12 @@ class UsercarsController < ApplicationController
         @ucs = @user.user_cars
         @uc = UserCar.find(params[:id])
         @i = @ucs.index(@uc) + 1  
+        #####cycle reset     
+        if @i == @ucs.size 
+            @i = 0 
+        end 
         @next = @ucs[@i]
-
+        @previous = @ucs
     end
 
     def sell
