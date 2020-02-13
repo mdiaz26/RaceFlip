@@ -22,7 +22,6 @@ Rails.application.routes.draw do
 
 
   get "/leaderboards", to: "users#leaderboard", as: "leaderboard"
-
   get "/race", to: "races#new", as: "race"
   post "/race", to: "races#create"
 end
