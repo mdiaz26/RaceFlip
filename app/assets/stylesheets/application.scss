@@ -40,6 +40,47 @@ body {
     // background-repeat: no-repeat;  
     }
 
+div.welcome{
+  background-color: rgba(179, 255, 0, 0.561);
+  opacity: 0.9;
+  text-align: center;
+  width: 40%;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%);
+  font-family: 'Impact';
+}
+
+p.title{
+  color: #050101;
+  font-size: 400%;
+}
+
+.btn{
+  margin: 3px;
+  padding: 20px 30px;
+  border: none;
+}
+
+.btn-primary{
+  background: white;
+  color: #050101;
+}
+
+.btn-primary:hover{
+  background: rgba(179, 255, 0, 0.561)
+}
+
+a#login-button{
+  position: relative;
+  right: 15%;
+}
+
+a#sign-up-button{
+  position: relative;
+  left: 15%;
+}
 
 
 
