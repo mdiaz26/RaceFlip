@@ -21,3 +21,14 @@ New Race:
     <%= f.collection_select(:loser_id, @cars, :id, :user_car_info)%>
     <%= f.submit "race!" %>
 <% end %>
+
+    <% if flash[:last_result] == "w" %>
+    <audio autoplay preload= "auto">
+    <source src="http://soundbible.com/grab.php?id=44&type=wav" type="audio/wav">
+    </audio>
+    <% elsif flash[:last_result] == "l" %>
+    <audio autoplay preload= "auto">
+    <source src="hhttp://soundbible.com/grab.php?id=615&type=wav" type="audio/wav">
+    </audio>
+    <% end %>
+            
