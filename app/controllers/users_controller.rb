@@ -15,7 +15,9 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.valid?
             session[:user_id] = @user.id
-            redirect_to buy_path
+            gc = UserCar.create(user_id:@user.id, car_id:rand(1..50), condition:100)
+            flash[:gift_car_mess] = "Welcome to AJM RaceWay! Here's a #{gc.make} #{gc.model}!"  
+            redirect_to uc_path(gc)
         else
             flash[:errors] = @user.errors.full_messages
             redirect_to new_user_path
