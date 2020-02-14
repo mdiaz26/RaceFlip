@@ -43,11 +43,16 @@ class UsercarsController < ApplicationController
     
     def destroy
         @usercar = UserCar.find(user_car_params[:user_car_id])
-        @user.balance += @usercar.car.cost
-        @user.save
-        @usercar.owned = "false"
-        @usercar.save
-        redirect_to sell_path
+        if @user.user_cars.length == 1
+            flash[:errors] = "You can't have zero cars!"
+            redirect_to sell_path
+        else
+            @user.balance += @usercar.car.cost
+            @user.save
+            @usercar.owned = "false"
+            @usercar.save
+            redirect_to sell_path
+        end
     end
 
     def repair
