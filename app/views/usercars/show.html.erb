@@ -2,6 +2,10 @@
     <%= flash[:repair_message] %>
 <% end %>
 
+<% if flash[:gift_car_mess] %>
+    <h1 class = "new_car"><%= flash[:gift_car_mess] %></h1>
+<% end %>
+
 <div class="background">
     <h1>Garage</h1>
     <h2>

@@ -46,7 +46,6 @@ porche2 = Car.create(make:"Porche",model: "Panamera",cost: 300000, top_speed:201
 mercedez_benz = Car.create(make:"Mercedes-Benz",model: "S-class", cost: 150000, top_speed: 179, image_url: "https://www.netcarshow.com/Porsche-Panamera-2017-1280-1b.jpg")
 mercedez_benz2 = Car.create(make:"Mercedes-Benz",model: "G-Wagon", cost: 275000, top_speed: 185, image_url: "https://www.netcarshow.com/Mercedes-Benz-G-Class-2019-pics-1.jpg")
 dodge1 = Car.create(make:"Dodge",model: "V12Challenger-HellCat", cost: 89000, top_speed: 183, image_url: "https://www.netcarshow.com/Mercedes-Benz-G-Class-2019-pics-1.jpg")
-
 acura2 = Car.create(make:"Acura", model:"NSX-GT3",  cost:500000, top_speed: 211, image_url: "https://www.netcarshow.com/Acura-NSX-2020-pics-1.jpg")
 bmw2 = Car.create(make: "BMW", model: "M3", cost: 75000, top_speed: 175, image_url: "https://www.netcarshow.com/BMW-M3_CS-2018-pics-1.jpg")
 honda3 = Car.create(make:"Honda",model: "Civic-TypeR", cost: 62000, top_speed: 169, image_url: "https://www.netcarshow.com/Honda-Civic_Type_R-2018-pics-1.jpg")
