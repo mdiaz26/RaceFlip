@@ -5,8 +5,8 @@ class UserCar < ApplicationRecord
     has_many :races, :foreign_key => "loser_id"
 
     def value
-    # this will become a more complex formula that factors in condition etc
-        self.car.cost - self.calculate_repair_cost
+    # This factors in condition as well as simple depreciation
+        (self.car.cost - self.calculate_repair_cost) * 0.8
     end
 
     def model

@@ -4,7 +4,7 @@
     <%= flash[:errors] %>
 <% end %>
 
-<% @user.user_cars.each do |uc| %>
+<% @user.owned_cars.each do |uc| %>
     <ul>
         <li><%= link_to "#{uc.make}", "/dealer", method: :delete %>
         <%= uc.model %>
@@ -14,7 +14,7 @@
 <% end %>
 
 <%= form_for :usercar, :html => { :method => :delete } do |f| %>
-    <%= f.collection_select(:user_car_id, @user.user_cars, :id, :make) %>
+    <%= f.collection_select(:user_car_id, @user.owned_cars, :id, :model) %>
     <%= f.submit "sell it" %>
 <% end %> 
 

@@ -1,8 +1,10 @@
 <div class="background">
 <h1>Recent Race Results:</h1>
 <strong class="message">
-    <% if flash[:message] %>
-        <%= flash[:message] %>
+    <% if flash[:messages] %>
+        <% flash[:messages].each do |message| %>
+            <%= message %><br>
+        <% end %>
     <% else %>
         <%= "Let's Do This!"%>
     <% end %></strong><br><br>

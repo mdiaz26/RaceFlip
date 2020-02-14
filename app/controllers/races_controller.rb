@@ -11,14 +11,15 @@ class RacesController < ApplicationController
     def create
         race = Race.create(race_params)
         pot = race_value(race.winner, race.loser).to_i
-        determine_results(race)
+        results = race.post_results
+        # byebug
         if race.winner.user == @user
-            flash[:message] = "You won $#{pot}"
+            flash[:messages] = ["You won by #{results[:difference]} mph", "You won $#{pot}"]
             @user.balance += pot
             @user.save
             flash[:last_result] = "w"
         else
-            flash[:message] = "You lost $#{pot}"
+            flash[:messages] = ["You lost by #{results[:difference]} mph", "You lost $#{pot}"]
             @user.balance -= pot
             @user.save
             flash[:last_result] = "l"
@@ -28,12 +29,17 @@ class RacesController < ApplicationController
     end
 
     def determine_results(race)
-        #This method accepts the argument of a race instance and returns the pot
-        # The pot can be a positive or negative number
-        car1 = race.winner
-        car2 = race.loser
-        # byebug
-        if car1.car_score < car2.car_score
+        results = Hash.new
+        results[:car1] = race.winner.car_score
+        results[:car2] = race.loser.car_score
+        results[:difference] = (results[:car1] - results[:car2]).abs
+        return results
+    end
+
+    def post_results(race)
+        #This method accepts the argument of a race instance and determines the winners
+        hash = determine_results(race)
+        if hash[:car1] < hash[:car2]
             race.winner = car2
             race.loser = car1
             race.save
@@ -41,7 +47,7 @@ class RacesController < ApplicationController
     end
 
     def race_value(car1, car2)
-        1000 * (car1.top_speed.to_f / car2.top_speed.to_f)
+        100000 - (car1.top_speed - car2.top_speed) * 100
     end
 
     private

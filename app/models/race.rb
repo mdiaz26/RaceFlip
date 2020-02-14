@@ -22,4 +22,26 @@ class Race < ApplicationRecord
         self.loser.condition *= 0.85
         self.loser.save
     end
+
+    def determine_results
+        results = Hash.new
+        results[:car1_name] = self.winner
+        results[:car2_name] = self.loser
+        results[:car1] = self.winner.car_score
+        results[:car2] = self.loser.car_score
+        results[:difference] = (results[:car1] - results[:car2]).to_i.abs
+        return results
+    end
+
+    def post_results
+        #This method accepts the argument of a race instance and determines the winners
+        hash = self.determine_results
+        if hash[:car1] < hash[:car2]
+            self.winner = hash[:car2_name]
+            self.loser = hash[:car1_name]
+            self.save
+        end
+        return hash
+    end
+
 end
