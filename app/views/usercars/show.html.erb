@@ -1,3 +1,4 @@
+<body class="garage">
 <% if flash[:repair_message] %>
     <%= flash[:repair_message] %>
 <% end %>
@@ -30,5 +31,6 @@
     <%= link_to "PREVIOUS VEHICLE", uc_path(@previous)%>
     <span id="next-vehicle"><%= link_to "NEXT VEHICLE", uc_path(@next)%> </span>
 </div>
+</body>
 
 
