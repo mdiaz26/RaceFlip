@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     layout "application"
     before_action :authorized, only: [:garage]
     before_action :has_cars?, only: [:garage]
-    before_action :identify_user, only: [:garage, :leaderboard]
+    before_action :identify_user, only: [:garage]
 
     def index
     end

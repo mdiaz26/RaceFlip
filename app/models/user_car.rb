@@ -27,7 +27,7 @@ class UserCar < ApplicationRecord
 
     def car_score
         #This generates a random number that will add chance to races
-        (self.top_speed + self.condition) * (rand(90..100)/100.0)
+        (self.top_speed + self.condition) * (rand(80..100)/100.0)
     end
 
     def repair
