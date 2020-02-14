@@ -22,9 +22,10 @@
 
         <%= button_to "repair", {controller: "usercars", action: "repair", id: @uc.id}, method: "post" %></p>
         <% if flash[:repair_cue] %>
-            <audio autoplay preload= "auto">
+            <audio autoplay>
             <source src="http://soundbible.com/grab.php?id=1975&type=wav" type="audio/wav">
             </audio>
+            <% flash[:repair_cue] = false %> 
         <% end %>
 
     <p>TOP SPEED: <%= @uc.top_speed %> MPH</p>

@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     end
 
     def garage
+        redirect_to uc_path(@user.user_cars.first)
     end
 
     def leaderboard
