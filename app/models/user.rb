@@ -39,4 +39,5 @@ class User < ApplicationRecord
         def owned_cars
                 self.user_cars.select{|usercar| usercar.owned}
         end
+
 end

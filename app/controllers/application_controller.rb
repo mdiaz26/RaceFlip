@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
         @user = User.find(session[:user_id])
     end
 
+    def has_cars?
+        @user = User.find(session[:user_id])
+        @user.cars.length > 0
+    end
+
 end

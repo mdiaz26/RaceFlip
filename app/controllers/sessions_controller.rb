@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-    
 
     def new
     end
@@ -8,7 +7,8 @@ class SessionsController < ApplicationController
         @user = User.find_by(name: login_params[:name])
         if @user && @user.authenticate(login_params[:password])
             session[:user_id] = @user.id
-            redirect_to garage_path
+            @usercar = @user.user_cars.first
+            redirect_to uc_path(@usercar)
         else
             flash[:errors] = @user.errors.full_messages
             render :new
@@ -27,5 +27,6 @@ class SessionsController < ApplicationController
     def login_params
         params.permit(:name, :password)
     end
+
 
 end

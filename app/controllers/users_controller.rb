@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     layout "application"
     before_action :authorized, only: [:garage]
+    before_action :has_cars?, only: [:garage]
     before_action :identify_user, only: [:garage, :leaderboard]
 
     def index
@@ -13,7 +14,8 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         if @user.valid?
-            redirect_to garage_path
+            session[:user_id] = @user.id
+            redirect_to buy_path
         else
             flash[:errors] = @user.errors.full_messages
             redirect_to new_user_path
@@ -26,8 +28,6 @@ class UsersController < ApplicationController
     def leaderboard
         @users = User.arrange_by_score
     end
-
-
 
     private
 
