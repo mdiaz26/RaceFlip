@@ -1,12 +1,15 @@
 <div class="background">
-<h1>Sell Page</h1>
+<h1>What are ya sellin?</h1>
+<% if flash[:errors] %>
+    <%= flash[:errors] %>
+<% end %>
 
 <% @user.user_cars.each do |uc| %>
     <ul>
         <li><%= link_to "#{uc.make}", "/dealer", method: :delete %>
         <%= uc.model %>
         <%= uc.condition %>
-        <%= uc.value %></li>
+        $<%= number_with_delimiter(uc.value, delimiter: ",") %></li>
     </ul>
 <% end %>
 
